@@ -14,11 +14,6 @@ public class CubeEditor : MonoBehaviour
         waypoint = GetComponent<Waypoint>();
     }
      
-    void Start() 
-    {
-
-    }
-
     void Update()
     {
         SnapToGrid();
@@ -38,7 +33,6 @@ public class CubeEditor : MonoBehaviour
     private void UpdateLabel()
     {
         TextMesh textMesh = GetComponentInChildren<TextMesh>();
-        int gridSize = waypoint.GetGridSize();
         string labelText = 
             waypoint.GetGridPos().x + 
             "," + 
