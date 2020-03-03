@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float movementDelay = 1f;
+    [SerializeField] float enemyHeight = 10f;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     {
         foreach (Waypoint waypoint in path)
         {
-            transform.position = new Vector3(waypoint.transform.localPosition.x, 10f, waypoint.transform.localPosition.z);
+            transform.position = new Vector3(waypoint.transform.localPosition.x, enemyHeight, waypoint.transform.localPosition.z);
             yield return new WaitForSeconds(movementDelay);
         }
     }
