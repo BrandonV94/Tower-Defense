@@ -7,7 +7,10 @@ public class Waypoint : MonoBehaviour
     [SerializeField] Color exploredColor = Color.black;
     public bool isExplored = false;
     public Waypoint exploredFrom;
+    public bool isPlaceable = true;
+
     Vector2Int gridPos;
+
     const int gridSize = 10;
 
     private void Update()
@@ -33,5 +36,20 @@ public class Waypoint : MonoBehaviour
     {
         MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
         topMeshRenderer.material.color = color;
+    }
+
+    void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(isPlaceable)
+            {
+                FindObjectOfType<TowerFactory>().AddTower(this);
+            }
+            else
+            {
+                print("Cannot place tower.");
+            }
+        }
     }
 }

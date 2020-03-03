@@ -75,6 +75,5 @@ public class Tower : MonoBehaviour
     {
         var emissionModule = projectileParticle.emission;
         emissionModule.enabled = isActive;
-        print(gameObject.name + " is firing.");
     }
 }
